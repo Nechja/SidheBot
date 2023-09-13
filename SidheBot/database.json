@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "testfordata",
+    "Description": "test commanddo a thing",
+    "Options": [
+      {
+        "Name": "testfromobject",
+        "Description": "test",
+        "Type": 3,
+        "IsRequired": true,
+        "Choices": [
+          {
+            "Name": "test",
+            "Value": "1"
+          }
+        ]
+      }
+    ]
+  }
+]
