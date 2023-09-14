@@ -72,36 +72,10 @@ public class DiscordClient : IDiscordSocketClient
 	{
 		_isConnected = true;
 		_logger.LogInformation($"{_client.CurrentUser} is connected");
+
 		await SendTestMessage("I am online!");
-		var guild = _client.GetGuild(_guildId);
-		var guildCommand = new SlashCommandBuilder();
-		
 
-		try
-		{
-			CommandRegister commandRegister = new CommandRegister(guild);
-			var _botCommands = new BasicCommands();
-			commander.RegisterCommands(_botCommands);
-			var commands = commander.GetCommands();
-			;
-			foreach (var item in commands)
-            {
-
-				var commandAttribute = (CommandAttribute)item.Value.GetCustomAttributes(typeof(CommandAttribute), false).First();
-				var commandobject = new CommandObject
-				{
-					Name = commandAttribute.Name,
-					Description = commandAttribute.Description
-				};
-				commandRegister.RegisterCommand(commandobject);
-			}
-            
-		}
-		catch (Exception e)
-		{
-			_logger.LogError(e.Message);
-		}
-
+		await RegisterCommands();
 	}
 
 	public async Task StartAsync()
@@ -117,6 +91,36 @@ public class DiscordClient : IDiscordSocketClient
 	}
 
 
+	private async Task RegisterCommands()
+	{
+		var guild = _client.GetGuild(_guildId);
+		var guildCommand = new SlashCommandBuilder();
 
+
+		try
+		{
+			CommandRegister commandRegister = new CommandRegister(guild);
+			var _botCommands = new BasicCommands();
+			commander.RegisterCommands(_botCommands);
+			var commands = commander.GetCommands();
+			;
+			foreach (var item in commands)
+			{
+
+				var commandAttribute = (CommandAttribute)item.Value.GetCustomAttributes(typeof(CommandAttribute), false).First();
+				var commandobject = new CommandObject
+				{
+					Name = commandAttribute.Name,
+					Description = commandAttribute.Description
+				};
+				commandRegister.RegisterCommand(commandobject);
+			}
+
+		}
+		catch (Exception e)
+		{
+			_logger.LogError(e.Message);
+		}
+	}
 
 }

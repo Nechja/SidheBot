@@ -29,7 +29,7 @@ public class CommandHandler
 	{
 		if (_commands.TryGetValue(commandName, out var method))
 		{
-			var result = method.InvokeAsync(instance, parameters); // We will define this extension method next
+			var result = method.InvokeAsync(instance, parameters); 
 			await result;
 		}
 		else
