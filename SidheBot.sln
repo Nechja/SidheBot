@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SidheBot", "SidheBot\SidheBot.csproj", "{7C299B75-2C4F-482E-937B-0CBCDC3071C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SidheBot", "SidheBot\SidheBot.csproj", "{7C299B75-2C4F-482E-937B-0CBCDC3071C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordAccess", "DiscordAccess\DiscordAccess.csproj", "{516B0F5E-EB6B-404E-B149-69DDE00406E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordAccess", "DiscordAccess\DiscordAccess.csproj", "{516B0F5E-EB6B-404E-B149-69DDE00406E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStore", "DataStore\DataStore.csproj", "{135D7B07-3269-4D19-94DB-A90FB98A556D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStore", "DataStore\DataStore.csproj", "{135D7B07-3269-4D19-94DB-A90FB98A556D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B884BABC-D4D6-4221-B150-F75FD4E0ECFC}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

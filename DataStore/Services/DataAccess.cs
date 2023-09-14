@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,18 +39,22 @@ public interface IDatabase
 
 public class FlatFile: IDatabase
 {
-	private string filePath = "database.json";
+	private string commandCollection = "database.json";
+	private string messageCollection = "messages.json";
+	private string postCollection = "posts.json";
+	private string emojiCollection = "emoji.json";
+	private string ranksCollection = "ranks.json";
 
 	public void AddCommand(CommandModel command)
 	{
 		List<CommandModel> commands = GetCommands();
 		commands.Add(command);
-		File.WriteAllText(filePath, JsonConvert.SerializeObject(commands));
+		File.WriteAllText(commandCollection, JsonConvert.SerializeObject(commands));
 	}
 
 	public List<CommandModel> GetCommands()
 	{
-		var commands = JsonConvert.DeserializeObject<List<CommandModel>>(File.ReadAllText(filePath));
+		var commands = JsonConvert.DeserializeObject<List<CommandModel>>(File.ReadAllText(commandCollection));
 		return commands ?? new List<CommandModel>();
 	}
 
@@ -57,6 +62,6 @@ public class FlatFile: IDatabase
 	{
 		List<CommandModel> commands = GetCommands();
 		commands.Remove(command);
-		File.WriteAllText(filePath, JsonConvert.SerializeObject(commands));
+		File.WriteAllText(commandCollection, JsonConvert.SerializeObject(commands));
 	}
 }
